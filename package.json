@@ -1,0 +1,17 @@
+{
+  "name": "vue-plugin-cordis",
+  "version": "0.1.0",
+  "description": "Vue plugin for cordis",
+  "dependencies": {
+    "cordis": "^3.12.0",
+    "vue": "^3.4.21"
+  },
+  "files": [
+    "lib"
+  ],
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "vite": "^5.1.4",
+    "typescript": "^5.3.3"
+  }
+}
