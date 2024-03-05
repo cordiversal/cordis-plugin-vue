@@ -5,9 +5,11 @@ import TestGrandson from "./TestGrandson.vue";
 import TestSon from "./TestSon.vue";
 import {} from "./types"
 import {Ref, unref} from "vue";
+import TestSlotComponentSon from "./TestSlotComponentSon.vue";
 
 const plugin : Ref<Context|null> = definePlugin((ctx:Context)=>{
   ctx.provide("testServiceSon");
+  ctx.slot.register('test',TestSlotComponentSon);
 },['testService'])
 
 function loadService(){

@@ -4,9 +4,12 @@ import {Context} from "cordis";
 import TestGrandson from "./TestGrandson.vue";
 import TestSon from "./TestSon.vue";
 import {} from "./types"
-import {Ref, unref} from "vue";
+import {markRaw, Ref, unref} from "vue";
+import TestSlotComponent from "./TestSlotComponent.vue";
 
-const plugin : Ref<Context|null> = definePlugin((ctx:Context)=>{},[
+const plugin : Ref<Context|null> = definePlugin((ctx:Context)=>{
+  ctx.slot.register('test',markRaw(TestSlotComponent));
+},[
     'testServiceSon'
 ])
 </script>

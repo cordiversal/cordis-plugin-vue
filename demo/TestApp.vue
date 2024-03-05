@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import {definePlugin} from "../src/vue-hooks";
+  import {definePlugin,CordisSlot} from "../src";
   import {Context} from "cordis";
   import TestGrandson from "./TestGrandson.vue";
   import TestSon from "./TestSon.vue";
@@ -23,9 +23,16 @@
 <template>
   <div v-if="plugin">
     Parent Component Loaded!
-    <button @click="loadService()">Load test service</button>
-    <button @click="unloadService()">Unload test service</button>
-    <TestSon></TestSon>
+    <div>
+      Service Test
+      <button @click="loadService()">Load test service</button>
+      <button @click="unloadService()">Unload test service</button>
+      <TestSon></TestSon>
+    </div>
+    <div>
+      Slot Test
+      <CordisSlot slot-name="test"/>
+    </div>
   </div>
   <div v-else>
     Loading main component....
