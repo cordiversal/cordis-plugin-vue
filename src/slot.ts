@@ -35,7 +35,7 @@ export class SlotManager extends Service{
     }
 
     register(name:string,component:Component){
-        return this[Context.trace].effect(()=>{
+        return this[Context.origin].effect(()=>{
             if(this.registry.has(name,component))
                 return ()=>null;
             this.registry.add(name,component);
@@ -49,7 +49,7 @@ export class SlotManager extends Service{
 
     use(name:string,callback:(component:Component|Component[]|null)=>void,config:SlotUseConfig){
         let hook = {callback,config};
-        return this[Context.trace].effect(()=> {
+        return this[Context.origin].effect(()=> {
             this.hooks.add(name,hook);
             this.executeCallback(name,callback,config);
             return ()=>{
